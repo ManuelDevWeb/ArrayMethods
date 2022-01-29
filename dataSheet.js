@@ -1,4 +1,4 @@
-export const characters = [{
+const characters = [{
         name: 'Luke Skywalker',
         height: 172,
         mass: 77,
@@ -42,9 +42,20 @@ export const characters = [{
 
 //***FILTER***
 //1. Get characters with mass greater than 100
+const greater100Characters = characters.filter(character => (character.mass > 100));
+console.log(greater100Characters);
+
 //2. Get characters with height less than 200
+const shorterCharacters = characters.filter(character => (character.height < 200));
+console.log(shorterCharacters);
+
 //3. Get all male characters
+const maleCharacters = characters.filter(character => (character.gender === 'male'));
+console.log(maleCharacters);
+
 //4. Get all female characters
+const femaleCharacters = characters.filter(character => (character.gender === 'female'));
+console.log(femaleCharacters);
 
 //***SORT***
 //1. Sort by mass
