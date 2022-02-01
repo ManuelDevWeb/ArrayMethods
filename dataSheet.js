@@ -52,9 +52,35 @@ const allFirstNames = characters.map(character => (
 
 //***REDUCE***
 //1. Get total mass of all characters
+const totalMass = characters.reduce((acc, cur) => (
+    acc + cur.mass
+), 0);
+// console.log(totalMass);
+
 //2. Get total height of all characters
+const totalHeight = characters.reduce((acc, cur) => (
+    acc + cur.height
+), 0);
+// console.log(totalHeight);
+
 //3. Get total number of characters by eye color
+const charactersByEyeColor = characters.reduce((acc, cur) => {
+    const color = cur.eye_color;
+
+    if (acc[color]) {
+        acc[color]++;
+    } else {
+        acc[color] = 1;
+    }
+    return acc;
+}, {});
+// console.log(charactersByEyeColor);
+
 //4. Get total number of characters in all the character names
+const totalNameCharacters = characters.reduce((acc, cur) => (
+    acc + cur.name.length
+), 0);
+// console.log(totalNameCharacters);
 
 //***FILTER***
 //1. Get characters with mass greater than 100
@@ -78,13 +104,13 @@ const femaleCharacters = characters.filter(character => (character.gender === 'f
 const byMass = characters.sort((a, b) => (
     a.mass - b.mass
 ));
-console.log(byMass);
+// console.log(byMass);
 
 //2. Sort by height
 const byHeight = characters.sort((a, b) => (
     a.height - b.height
 ));
-console.log(byHeight);
+// console.log(byHeight);
 
 //3. Sort by name
 const byName = characters.sort((a, b) => {
@@ -94,7 +120,7 @@ const byName = characters.sort((a, b) => {
         return 1;
     }
 });
-console.log(byName);
+// console.log(byName);
 
 //4. Sort by gender
 const byGender = characters.sort((a, b) => {
@@ -104,7 +130,7 @@ const byGender = characters.sort((a, b) => {
         return 1
     }
 });
-console.log(byGender);
+// console.log(byGender);
 
 //***EVERY***
 //1. Does every character have blue eyes?
